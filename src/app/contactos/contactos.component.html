@@ -1,0 +1,127 @@
+<div *ngIf="contacto?.length > 0;else noContactos">
+    <ul *ngFor="let contacto of contacto" class="collection">
+      <li class="collection-item">
+        <a href="#" class="secondary-content">
+          
+          
+        </a>
+
+        <h5>
+            <strong>{{contacto.nombre}} {{contacto.apellidos}}</strong>
+          </h5>
+          <br>
+          <span class="my_tag">
+            <strong>Telefono: </strong>{{contacto.telefono}}</span><br>
+          <span class="my_tag">
+            <strong>Correo: </strong>{{contacto.correo}}</span><br>
+          <span class="my_tag">
+            <strong>Observaciones: </strong>{{contacto.observaciones}}</span><br>
+          <hr>
+
+
+        
+          <!-- TODO: form -->
+          <form (ngSubmit)="onUdpdateContacto(contacto)" class="col s6">
+            <div class="row">
+
+                <div class="input-field col s6">
+                    <input [(ngModel)]="contacto.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre" placeholder="Nombre" >
+                    <label>Nombre</label>
+                  </div>
+                  
+                  <div class="input-field col s6">
+                    <input [(ngModel)]="contacto.apellidos" #apellidos="ngModel" type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+                    <label>Apellidos</label>
+                  </div>
+      
+                  <div class="input-field col s6">
+                    <input [(ngModel)]="contacto.telefono" #telefono="ngModel" type="text" name="telefono" id="telefono" placeholder="Telefono">
+                    <label>Telefono</label>
+                  </div>
+      
+                  <div class="input-field col s6">
+                    <input [(ngModel)]="contacto.correo" #correo="ngModel" type="text" name="correo" id="correo" placeholder="Correo">
+                    <label>Correo</label>
+      
+                  </div>
+      
+                  <div class="input-field col s6">
+                    <input [(ngModel)]="contacto.observaciones" #observaciones="ngModel" type="text" name="observaciones" id="observaciones" placeholder="Observaciones">
+                    <label>Observaciones</label>
+                  </div>
+
+
+
+              <button (click)="deleteContacto($event, contacto)" class="btn red right">Borrar
+                
+              </button>
+              <button type="submit" class="btn orange">Actualizar
+                
+              </button>
+
+            </div>
+  
+          </form>
+        
+
+
+
+      </li>
+    </ul>
+  </div>
+  <ng-template #noContactos>
+    <hr>
+    <h5>NO EXISTEN CONTACTOS</h5>
+  </ng-template>
+
+<!--
+  
+  
+<i *ngIf="editState && contactoToEdit.id == contacto.id" (click)="clearState()" class="material-icons">close</i>
+
+<div *ngIf="editState && contactoToEdit.id == contacto.id" class="container-updateContacto">
+
+
+          <h5>
+        <strong>{{contacto.nombre}} {{contacto.apellidos}}</strong>
+      </h5>
+      <br>
+      <span class="my_tag">
+        <strong>Telefono: </strong>{{contacto.telefono}}</span><br>
+      <span class="my_tag">
+        <strong>Correo: </strong>{{contacto.correo}}</span><br>
+      <span class="my_tag">
+        <strong>Observaciones: </strong>{{contacto.observaciones}}</span><br>
+      <hr>
+  
+
+
+
+            <div class="input-field col s6">
+              <input [(ngModel)]="contacto.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre" placeholder="Nombre">
+              <label>Nombre</label>
+            </div>
+            
+            <div class="input-field col s6">
+              <input [(ngModel)]="contacto.apellidos" #apellidos="ngModel" type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+              <label>Apellidos</label>
+            </div>
+
+            <div class="input-field col s6">
+              <input [(ngModel)]="contacto.telefono" #telefono="ngModel" type="text" name="telefono" id="telefono" placeholder="Telefono">
+              <label>Telefono</label>
+            </div>
+
+            <div class="input-field col s6">
+              <input [(ngModel)]="contacto.correo" #correo="ngModel" type="text" name="correo" id="correo" placeholder="Correo">
+              <label>Correo</label>
+
+            </div>
+
+            <div class="input-field col s6">
+              <input [(ngModel)]="contacto.observaciones" #observaciones="ngModel" type="text" name="observaciones" id="observaciones" placeholder="Observaciones">
+              <label>Observaciones</label>
+            </div>
+
+
+-->

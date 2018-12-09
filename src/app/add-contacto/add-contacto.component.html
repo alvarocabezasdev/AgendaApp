@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Nuevo Contacto</span>
+
+    <form (ngSubmit)="onGuardarContacto(formNew)" #formNew="ngForm" class="col s6">
+      <div class="row">
+        <div class="input-field col s6">
+          <input [(ngModel)]="contacto.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre" placeholder="Nombre" 
+            maxlength="40" required>
+          <label>Nombre</label>
+          <div *ngIf="nombre.touched && !nombre.valid">
+            <div *ngIf="nombre.errors.required">Nombre es requerido</div>
+            <div *ngIf="nombre.errors.minlength">Nombre debe ser de al menos {{nombre.errors.minlength.requiredLength}} caracteres.</div>
+          </div>
+        </div>
+
+        <div class="input-field col s6">
+          <input [(ngModel)]="contacto.apellidos" #apellidos="ngModel" type="text" name="apellidos" id="apellidos" placeholder="Apellidos"
+            maxlength="40" required>
+          <label>Apellidos</label>
+          <div *ngIf="apellidos.touched && !apellidos.valid">
+            <div *ngIf="apellidos.errors.required">Apellidos es requerido</div>
+            <div *ngIf="apellidos.errors.minlength">Apellidos debe ser de al menos {{apellidos.errors.minlength.requiredLength}} caracteres.</div>
+          </div>
+        </div>
+
+        <div class="input-field col s6">
+          <input [(ngModel)]="contacto.correo" #correo="ngModel" type="text" name="correo" id="correo" placeholder="Correo">
+          <label>Correo</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input [(ngModel)]="contacto.telefono" #telefono="ngModel" type="text" name="telefono" id="telefono" placeholder="Telefono" minlength="9"
+            maxlength="12" required>
+          <label>Telefono</label>
+          <div *ngIf="telefono.touched && !telefono.valid">
+            <div *ngIf="telefono.errors.required">Telefono es requerido</div>
+            <div *ngIf="telefono.errors.minlength">Telefono debe ser de al menos {{telefono.errors.minlength.requiredLength}} caracteres.</div>
+          </div>
+        </div>
+
+        <div class="input-field col s6">
+          <input [(ngModel)]="contacto.observaciones" #observaciones="ngModel" type="text" name="observaciones" id="observaciones" placeholder="Observaciones">
+          <label>Observaciones</label>
+        </div>
+        <button type="submit" class="btn waves-effect waves-light orange right" linkRouter="/contactos">Guardar</button>
+      </div>
+
+    </form>
+  </div>
+</div>
