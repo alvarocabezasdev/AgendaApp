@@ -44,7 +44,7 @@ const routes: Routes = [
       ReactiveFormsModule,
       HttpModule,
       AngularFireModule.initializeApp(environment.firebase),
-      AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+      AngularFirestoreModule, // imports firebase/firestore, only needed for database features AngularFireModule.initializeApp(environment.firebase),
       AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     ],
 
